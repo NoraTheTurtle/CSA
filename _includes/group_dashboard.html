@@ -1469,8 +1469,8 @@
           body: JSON.stringify(eventPayload)
         });
 
-        if (res.status === 401 || res.status === 403 || (res.redirected && res.url.includes('/login'))) {
-          this.setStatus('Session expired. Please log in again.', true);
+        if (res.status === 401 || res.status === 403) {
+          this.setStatus('Authentication required.', true);
           btn.disabled = false;
           btn.innerHTML = 'Create Event';
           return;

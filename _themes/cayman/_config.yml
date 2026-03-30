@@ -18,9 +18,4 @@ plugins:
   - jekyll-remote-theme
 
 header_pages:
-  - navigation/courses/csse.md
-  - navigation/courses/csp.md
   - navigation/courses/csa.md 
-  - navigation/blog.md
-  - navigation/search.md
-  - navigation/logintoolkit.md

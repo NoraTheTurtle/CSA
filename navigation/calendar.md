@@ -10,7 +10,7 @@ active_tab: calendar
 <!-- FullCalendar Container -->
 <div id="calendar-auth-banner" style="display:none; background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%); color: #fff; padding: 12px 20px; border-radius: 12px; margin-bottom: 12px; font-size: 0.95rem; align-items: center; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
     <i class="fas fa-exclamation-triangle" style="font-size: 1.2rem;"></i>
-    <span>Your session has expired. <a href="{{site.baseurl}}/login" style="color: #fbbf24; text-decoration: underline; font-weight: 600;">Log in again</a> to view and manage your calendar events.</span>
+    <span>Authentication is required to view and manage your calendar events.</span>
 </div>
 <div id="calendar" class="box-border z-0"></div>
 <!-- Modal -->
@@ -72,12 +72,6 @@ active_tab: calendar
     function handleAuthError(response) {
         if (response.status === 401 || response.status === 403) {
             console.warn('Not authenticated (HTTP ' + response.status + ')');
-            javaAuthenticated = false;
-            showAuthBanner();
-            return true;
-        }
-        if (response.redirected && response.url && response.url.includes('/login')) {
-            console.warn('Session expired — redirected to login');
             javaAuthenticated = false;
             showAuthBanner();
             return true;

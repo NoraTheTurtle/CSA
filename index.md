@@ -1,12 +1,18 @@
 ---
-layout: post 
-feedback: true
-hide: true
+layout: post
 title: Open Coding Society
-description: An Open Pathway to Computer Science
-sprite: /images/mario_animation.png
+description: CSA Home
 permalink: /
 ---
+
+# Open Coding Society
+
+This site is focused on AP Computer Science A.
+
+- [APCSA Course](/navigation/courses/csa)
+- [AP FRQ Lessons](/csa/ap-frq-lessons/)
+
+{% comment %}
 
 <!-- ================= LIQUID SETUP ================= -->
 
@@ -484,3 +490,4 @@ Students work in teams to identify a real-world problem, conduct research, desig
 > Student projects are tracked and guided using Open Coding Society–supported project guidelines, including enrollment, issue tracking, and iterative review cycles, ensuring progress is documented and supported across disciplines.
 
 This capstone emphasizes creating a **student-designed solution to a real-world problem**, integrating computer science with other applied fields while highlighting professional collaboration, technical documentation, and public presentation.
+{% endcomment %}

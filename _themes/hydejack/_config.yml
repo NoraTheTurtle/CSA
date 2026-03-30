@@ -9,18 +9,8 @@ theme_color:           rgb(100, 100, 100)
 google_fonts:          false
 
 menu:
-  - title: CSSE
-    url: /navigation/courses/csse/
-  - title: CSP
-    url: /navigation/courses/csp/
   - title: CSA
     url: /navigation/courses/csa/
-  - title: Blog
-    url: /navigation/blogs/
-  - title: Search
-    url: /navigation/search/
-  - title: Login
-    url: /login/
 hydejack:
   post_addons:         [about, newsletter, related, random, comments]
   project_addons:      [about, newsletter, other, comments]

@@ -78,7 +78,7 @@ title: Investments Home
             <a href="{{site.baseurl}}/investments/home">Home</a>
             <a href="{{site.baseurl}}/stocks/home">Stocks</a>
             <a href="{{site.baseurl}}/crypto/portfolio">Crypto</a>
-            <a onclick="logout()" href="{{site.baseurl}}/investments/login">Logout</a>
+            <a href="{{site.baseurl}}/investments">Investments Home</a>
         </div>
     </nav>
 
