@@ -9,7 +9,7 @@ permalink: /
 
 This site is focused on AP Computer Science A.
 
-- [AP FRQ Lessons](/csa/ap-frq-lessons/)
+- [FRQ Lessons](/frq/)
 
 {% comment %}
 

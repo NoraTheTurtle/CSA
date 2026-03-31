@@ -1,8 +1,8 @@
 ---
 layout: post
 title: FRQs
-description: AP CSA Free-Response Question lessons and walkthroughs.
-permalink: /csa/ap-frq-lessons/
+description: Free-response question lessons and walkthroughs.
+permalink: /frq/
 ---
 
 {% assign frq_posts = site.posts | where_exp: "post", "post.path contains '/ap_frq_lessons/'" | sort: "url" | reverse %}
