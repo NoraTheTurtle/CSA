@@ -1,15 +1,14 @@
 ---
 layout: post
-title: Open Coding Society
+title: Nora's Blog
 description: CSA Home
 permalink: /
 ---
 
-# Open Coding Society
+# Nora's Blog
 
 This site is focused on AP Computer Science A.
 
-- [APCSA Course](/navigation/courses/csa)
 - [AP FRQ Lessons](/csa/ap-frq-lessons/)
 
 {% comment %}

@@ -15,9 +15,9 @@
 #   in _config.yml. It will appear in your document head meta (for Google search
 #   results) and in your feed.xml site description.
 
-title: Open Coding 
+title: Nora's Blog
 description: "Class of 2026"
-owner_name: Open Coding Society 
+owner_name: Nora's Blog
 github_username: open-coding-society 
 github_repo: "pages" 
 baseurl: "" 
