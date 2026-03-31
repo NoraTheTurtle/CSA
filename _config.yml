@@ -123,6 +123,7 @@ minima:
     - { platform: x, user_url: "https://x.com/Open_Coding" }
     - { platform: youtube, user_url: "https://www.youtube.com/@OpenCodingSociety" } 
   nav_pages:
-    - navigation/courses/csa.md
+    - navigation/ap-frq-lessons.md
+    - navigation/search.md
 
 gemini_api_key: AIzaSyBWEz5qHeWx5buC4I4dZ2fllaMk3z8k_-w
