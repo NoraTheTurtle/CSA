@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Nora's Blog
-description: CSA Home
+title: Nora's Blog :) 
+description: AP CSA study zone
 permalink: /
 ---
 
-# Nora's Blog
+# Nora's Blog :)
 
 | Date | Frq Lesson homework!| 
 |:-----|:---------|
