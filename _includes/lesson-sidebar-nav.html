@@ -5,6 +5,31 @@
 {% endcomment %}
 
 <div class="lesson-sidebar">
+  {% assign is_frq_page = false %}
+  {% if page.url contains '/frq/' or page.path contains 'ap_frq_lessons' %}
+    {% assign is_frq_page = true %}
+  {% endif %}
+
+  {% if is_frq_page %}
+  <div class="sidebar-header">
+    <h2>FRQ Notebooks</h2>
+  </div>
+
+  <div class="sprint-nav">
+    {% assign frq_posts = posts | where_exp: "item", "item.url contains '/frq/'" | sort: "url" %}
+    {% for post in frq_posts %}
+      {% if post.url != '/frq/' and post.title %}
+      <a href="{{ site.baseurl }}{{ post.url }}"
+         class="lesson-item {% if page.url == post.url %}active{% endif %}"
+         data-lesson-id="{{ post.url }}">
+        <i class="fas fa-circle lesson-status-icon incomplete"></i>
+        <span class="lesson-title">{{ post.title }}</span>
+      </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% else %}
   <div class="sidebar-header">
     {% if current_course == 'csp' %}
       <h2>Computer Science Principles</h2>
@@ -70,4 +95,5 @@
       {% endif %}
     {% endfor %}
   </div>
+  {% endif %}
 </div>
