@@ -5,7 +5,7 @@ description: AP CSA study zone
 permalink: /
 ---
 
-# Nora's Blog :)
+# Nora's Blog :]
 
 | Date | Frq Lesson homework!|☆difficulty☆| reflection |
 |:-----|:---------|:------------|:---------|
