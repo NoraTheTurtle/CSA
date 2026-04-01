@@ -5,6 +5,209 @@ description: AP CSA study zone
 permalink: /
 ---
 
+<style>
+  .snowflake-image-toggle {
+    position: fixed;
+    top: 66px;
+    right: 14px;
+    z-index: 41;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 0;
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .snowflake-image-toggle img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .snowflake-toggle {
+    position: fixed;
+    top: 122px;
+    right: 14px;
+    z-index: 40;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 8px 12px;
+    background: rgba(17, 24, 39, 0.7);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+  }
+
+  .homepage-snowflakes {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 15;
+    transition: opacity 0.35s ease;
+  }
+
+  .homepage-snowflakes.is-hidden {
+    opacity: 0;
+  }
+
+  .homepage-snowflakes.is-paused .homepage-snowflake,
+  .homepage-snowflakes.is-paused .homepage-snowflake::before {
+    animation-play-state: paused;
+  }
+
+  .homepage-snowflake {
+    position: absolute;
+    top: -64px;
+    width: var(--flake-size, 24px);
+    height: var(--flake-size, 24px);
+    opacity: 0.9;
+    animation-name: snowfall;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    will-change: transform, top;
+  }
+
+  .homepage-snowflake::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: var(--flake-image, url('{{ "/images/snowflake.png" | relative_url }}'));
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: snowspin var(--spin-duration, 3.2s) linear infinite;
+  }
+
+  @keyframes snowfall {
+    from {
+      transform: translateX(0);
+      top: -64px;
+    }
+    to {
+      transform: translateX(var(--drift, 0px));
+      top: 110vh;
+    }
+  }
+
+  @keyframes snowspin {
+    from { rotate: 0deg; }
+    to { rotate: 360deg; }
+  }
+</style>
+
+<button id="snowflake-image-toggle" class="snowflake-image-toggle" type="button" aria-label="Change falling image" title="Change falling image">
+  <img id="snowflake-image-preview" src="{{ '/images/flower.png' | relative_url }}" alt="flower" loading="lazy">
+</button>
+<button id="snowflake-toggle" class="snowflake-toggle" type="button" aria-pressed="false">Hide</button>
+<div id="homepage-snowflakes" class="homepage-snowflakes" aria-hidden="true"></div>
+
+<script>
+  (function () {
+    const container = document.getElementById('homepage-snowflakes');
+    const toggleBtn = document.getElementById('snowflake-toggle');
+    const imageToggleBtn = document.getElementById('snowflake-image-toggle');
+    const imagePreview = document.getElementById('snowflake-image-preview');
+    if (!container) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      container.classList.add('is-hidden');
+      if (toggleBtn) {
+        toggleBtn.textContent = 'Show';
+        toggleBtn.setAttribute('aria-pressed', 'true');
+      }
+      return;
+    }
+
+    const maxFlakes = 26;
+    let snowflakesHidden = false;
+    const fallingImages = [
+      { src: '{{ "/images/flower.png" | relative_url }}', label: 'flower' },
+      { src: '{{ "/images/leaf.png" | relative_url }}', label: 'leaf' },
+      { src: '{{ "/images/snowflake.png" | relative_url }}', label: 'snowflake' },
+      { src: '{{ "/images/sun.png" | relative_url }}', label: 'sun' }
+    ];
+    let currentImageIndex = 0;
+
+    function applyCurrentImage() {
+      const currentImage = fallingImages[currentImageIndex];
+      container.style.setProperty('--flake-image', `url("${currentImage.src}")`);
+      if (imagePreview) {
+        imagePreview.src = currentImage.src;
+        imagePreview.alt = currentImage.label;
+      }
+    }
+
+    function updateToggleText() {
+      if (!toggleBtn) return;
+      toggleBtn.textContent = snowflakesHidden ? 'Show' : 'Hide';
+      toggleBtn.setAttribute('aria-pressed', String(snowflakesHidden));
+    }
+
+    function spawnFlake() {
+      if (snowflakesHidden) return;
+      if (!container || container.childElementCount >= maxFlakes) return;
+
+      const flake = document.createElement('span');
+      flake.className = 'homepage-snowflake';
+
+      const size = 14 + Math.random() * 24;
+      const left = Math.random() * 100;
+      const drift = -55 + Math.random() * 110;
+      const fallDuration = 6 + Math.random() * 8;
+      const spinDuration = 2.2 + Math.random() * 3.8;
+
+      flake.style.left = `${left}vw`;
+      flake.style.setProperty('--flake-size', `${size}px`);
+      flake.style.setProperty('--drift', `${drift}px`);
+      flake.style.setProperty('--spin-duration', `${spinDuration}s`);
+      flake.style.animationDuration = `${fallDuration}s`;
+
+      flake.addEventListener('animationend', function (event) {
+        if (event.animationName === 'snowfall') {
+          flake.remove();
+        }
+      });
+
+      container.appendChild(flake);
+    }
+
+    for (let i = 0; i < 10; i += 1) {
+      setTimeout(spawnFlake, i * 260);
+    }
+
+    setInterval(spawnFlake, 380);
+    applyCurrentImage();
+
+    if (imageToggleBtn) {
+      imageToggleBtn.addEventListener('click', function () {
+        currentImageIndex = (currentImageIndex + 1) % fallingImages.length;
+        applyCurrentImage();
+      });
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        snowflakesHidden = !snowflakesHidden;
+        container.classList.toggle('is-hidden', snowflakesHidden);
+        container.classList.toggle('is-paused', snowflakesHidden);
+        updateToggleText();
+      });
+      updateToggleText();
+    }
+  })();
+</script>
+
 # Nora's Blog :]
 
 | Date | Frq Lesson homework!|☆difficulty☆| reflection |
