@@ -7,15 +7,15 @@ permalink: /
 
 # Nora's Blog :)
 
-| Date | Frq Lesson homework!| 
-|:-----|:---------|
-| 2/7 | [2016 #3](https://github.com/Frogpants/gamers/issues/40) | 
-| 2/7 | [2024 #1](https://github.com/Frogpants/gamers/issues/41) | 
-| 2/14 | [2019 #4](https://github.com/Frogpants/gamers/issues/45) | 
-| 3/7 | [2022 #3](https://github.com/NoraTheTurtle/NoraCSA/issues/13) | 
-| 3/14 | 2017 #1 (My lesson!)| 
-| 3/21 | [2024 #3](https://github.com/NoraTheTurtle/NoraCSA/issues/11)| 
-| 3/30 | [2017 #4](https://github.com/NoraTheTurtle/NoraCSA/issues/12)| 
+| Date | Frq Lesson homework!|difficulty| reflection |
+|:-----|:---------|:---------|:---------|
+| 2/7 | [2016 #3](https://github.com/Frogpants/gamers/issues/40) | 3/5 | I struggled a bit with visualizing the 2D array and making sure I wasn’t going out of bounds, especially on the edges. Writing the boolean logic for checking neighbors took some trial and error. In Part B, switching to OOP was confusing at first, especially understanding how the class and toString() worked together. |
+| 2/7 | [2024 #1](https://github.com/Frogpants/gamers/issues/41) | 2/5 | I struggled a bit with keeping track of how the variable was changing over time in the simulation. Making sure I updated the value in the right order before checking conditions was a little confusing. But I helped myself by tracking my work on a seprete peice of paper, and by having reviewed these questions before since Ive gotten simular ones on the practice MCQs |
+| 2/14 | [2019 #4](https://github.com/Frogpants/gamers/issues/45) | 2/5  | Same as the lesson above, I just struggled keeping track of how the nested loops were iterating, specifically when I was focusing on the colums not rows. It was a little confusing making sure the conditional logic was evaluated correctly before running it (practice for the AP exam where there is no code runner) but I figured it out quickly if I went slow and focused.|
+| 3/7 | [2022 #3](https://github.com/NoraTheTurtle/NoraCSA/issues/13) | 3/5 | I had a little trouble looping through the array of objects and making sure I was calling the right methods on each one. The string filtering and formatting part took some trial and error to get exactly right, which is something I want to review since again, on the AP exam there is sadly no code runner. I also had to be careful with casting to avoid integer division when calculating the average. |
+| 3/14 | 2017 #1 (My lesson!)| 2/5 | easy |
+| 3/21 | [2024 #3](https://github.com/NoraTheTurtle/NoraCSA/issues/11)| 4/5 | The string methods like contains, startsWith, and substring were a bit tricky to apply correctly at first. I also had to think carefully about how to build new lists without modifying the original data, so to study for the AP test im going to review this FRQ as practice on these topics im weaker in |
+| 3/30 | [2017 #4](https://github.com/NoraTheTurtle/NoraCSA/issues/12)| 3/5 | Combining nested loops and method calls to build the new 2D array correctly was the hardest part for me. Keeping track of what each index represented and making sure I passed the right values into findPosition was a bit confusing. Handling cases where the value didn’t exist and returning null also took some careful thinking, and a lot of focus.|
 
 {% comment %}
 
