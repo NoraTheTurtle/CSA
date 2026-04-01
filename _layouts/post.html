@@ -8,6 +8,10 @@ Check if this is a course lesson and determine which course context to use
 {% assign is_course_lesson = false %}
 {% assign current_course = null %}
 {% assign current_week = null %}
+{% assign is_notebook_page = false %}
+{% if page.path contains '_notebooks/' or page.path contains '.ipynb' or page.path contains 'ap_frq_lessons' or page.url contains '/frq/' %}
+{% assign is_notebook_page = true %}
+{% endif %}
 
 {% comment %}Since files are now course-specific, get the single course{% endcomment %}
 {% if page.courses.csp %}
@@ -38,6 +42,16 @@ Check if this is a course lesson and determine which course context to use
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+{% if is_notebook_page %}
+<style>
+  .assignment-submission,
+  .lesson-submit-container,
+  #submit-lesson-btn {
+    display: none !important;
+  }
+</style>
+{% endif %}
+
 <div class="lesson-player">
   <!-- LEFT SIDEBAR -->
   {% include lesson-sidebar-nav.html %}
@@ -56,7 +70,7 @@ Check if this is a course lesson and determine which course context to use
             {%- if page.show_reading_time != false -%}
             <span><i class="fas fa-clock"></i> {% include reading_time.html %}</span>
             {%- endif -%}
-            {% if page.assignment %}
+            {% if page.assignment and is_notebook_page == false %}
             <span>•</span>
             <span><i class="fas fa-file-alt"></i> Assignment</span>
             {% endif %}
@@ -79,7 +93,7 @@ Check if this is a course lesson and determine which course context to use
           {% include gist-export-button.html %}
           {% endif %}
 
-          {% if page.assignment %}
+          {% if page.assignment and is_notebook_page == false %}
           {% include lesson-submission-form.html %}
           {% endif %}
         </div>
@@ -1111,7 +1125,7 @@ Check if this is a course lesson and determine which course context to use
 
     {{ content }}
 
-    {% if page.assignment %}
+    {% if page.assignment and is_notebook_page == false %}
     <div class="assignment-submission">
       <h3>
         <i class="fas fa-upload assignment-submission-icon"></i>

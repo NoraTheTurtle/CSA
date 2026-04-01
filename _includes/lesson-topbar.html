@@ -3,6 +3,10 @@
   Shows breadcrumbs, current page info, completion toggle, and progress bar
   Expects: current_course, current_week, page, site
 {% endcomment %}
+{% assign is_notebook_page = false %}
+{% if page.path contains '_notebooks/' or page.path contains '.ipynb' %}
+  {% assign is_notebook_page = true %}
+{% endif %}
 
 <div class="topbar-lesson">
   <div class="topbar-left">
@@ -14,10 +18,12 @@
       <span>Week {{ current_week }}</span>
       <i class="fas fa-chevron-right"></i>
       <span class="current">{{ page.title }}</span>
+      {% unless is_notebook_page %}
       <button id="topbar-complete-btn" onclick="toggleComplete()" type="button" title="Mark lesson complete">
         <i class="fas fa-circle" id="complete-icon-topbar"></i>
         <span id="complete-text-topbar">Burndown</span>
       </button>
+      {% endunless %}
     </div>
   </div>
   <div class="topbar-progress">
