@@ -54,7 +54,9 @@ Check if this is a course lesson and determine which course context to use
 
 <div class="lesson-player">
   <!-- LEFT SIDEBAR -->
+  {% if page.show_sidebar != false %}
   {% include lesson-sidebar-nav.html %}
+  {% endif %}
 
   <!-- MAIN CONTENT -->
   <div class="lesson-main">
