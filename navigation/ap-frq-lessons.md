@@ -1,7 +1,7 @@
 ---
 layout: post
 title: FRQs
-description: Free-response question lessons and walkthroughs.
+description: FRQ lessons in order of date on jupyter notebook
 permalink: /frq/
 ---
 

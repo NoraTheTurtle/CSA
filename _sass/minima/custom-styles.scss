@@ -77,3 +77,107 @@ a,
 a:visited {
 	color: #d899ea;
 }
+
+/* ===== Personalized visual refresh (non-runner pages) ===== */
+
+:root {
+	--page-radius-sm: 14px;
+	--page-radius-md: 22px;
+	--page-radius-lg: 30px;
+}
+
+html,
+body {
+	font-family: 'Noto Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	background: radial-gradient(circle at 12% 10%, rgba(199, 107, 224, 0.2), transparent 36%),
+						radial-gradient(circle at 85% 85%, rgba(122, 119, 217, 0.18), transparent 34%),
+						linear-gradient(180deg, color-mix(in srgb, var(--bg-0) 82%, #1f1436 18%), var(--bg-0));
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Rajdhani', 'Montserrat', 'Noto Sans', sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	text-shadow: 0 0 20px rgba(199, 107, 224, 0.22);
+}
+
+.site-header {
+	border-radius: 0 0 var(--page-radius-lg) var(--page-radius-lg);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 8px 26px rgba(8, 6, 16, 0.45);
+}
+
+.site-footer {
+	border-radius: var(--page-radius-lg) var(--page-radius-lg) 0 0;
+}
+
+.site-nav .page-link {
+	border-radius: 999px;
+	padding: 7px 14px;
+	background: color-mix(in srgb, var(--bg-2) 70%, transparent 30%);
+	border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--bg-3) 65%);
+	transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.site-nav .page-link:hover,
+.site-nav .page-link:focus {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 20px rgba(199, 107, 224, 0.24);
+	background: color-mix(in srgb, var(--accent) 14%, var(--bg-2) 86%);
+}
+
+.page-content,
+.post,
+.post-content,
+.post-list li,
+article,
+main,
+table,
+blockquote,
+pre,
+code {
+	border-radius: var(--page-radius-md) !important;
+	background-color: color-mix(in srgb, var(--bg-1) 78%, #2a1d47 22%) !important;
+	box-shadow: 0 8px 26px rgba(11, 9, 23, 0.42);
+}
+
+.post-list li,
+table,
+blockquote {
+	border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--bg-3) 72%) !important;
+}
+
+button,
+.btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	border-radius: 999px !important;
+	box-shadow: 0 4px 14px rgba(199, 107, 224, 0.2);
+}
+
+textarea,
+select,
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+	border-radius: var(--page-radius-sm) !important;
+	background-color: color-mix(in srgb, var(--bg-1) 74%, #31234f 26%);
+}
+
+/* Keep runner UI untouched by this experimental page restyle */
+.code-runner-container,
+.ui-runner-container,
+.game-runner-container,
+#code-output,
+.output-content,
+.editor-textarea,
+.CodeMirror {
+	font-family: inherit !important;
+	border-radius: unset !important;
+	box-shadow: none !important;
+	backdrop-filter: none !important;
+}

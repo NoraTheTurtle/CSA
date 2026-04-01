@@ -60,7 +60,7 @@ hide: true
   <div class="col-start-2 row-start-2 p-4">
     <div class="border rounded-lg">
       <div class="rounded-xl p-10 text-sm/7 text-gray-700 bg-gray-200 dark:bg-gray-950">
-        <img class="size-12 shrink-0" src="{{site.baseurl}}/images/tailwind_logo.jpg" alt="ChitChat Logo" />
+        <img class="size-12 shrink-0" src="{{site.baseurl}}/images/tailwind_logo.png" alt="ChitChat Logo" />
         <div class="text-xl font-medium text-bg-gray-950 dark:text-gray-700">ChitChat</div>
         <p class="text-gray-500 dark:text-gray-400">You have a new message from Tailwind!</p>
         <ul class="space-y-3">
