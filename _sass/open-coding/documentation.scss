@@ -1,26 +1,26 @@
 @import '../root-color-map';    
         :root {
-            --accent: #4CAFEF;
-            --accent-700: #007ACC;
-            --accent-700-hover: #005FA3;
-            --bg-0: #000;
-            --bg-1: #1F2020;
-            --bg-2: #1F1F1F;
-            --bg-3: #2A2D2D;
-            --blue: #3182CE;
-            --green: #4ADE80;
-            --green-bg: #2D5A3D;
-            --orange: #ED8936;
-            --panel: #2B2B2B;
-            --popup-bg: #222;
-            --red: #E53E3E;
-            --success-green: #28A745;
-            --surface: #333;
-            --teal: #38B2AC;
-            --text: #F0F0F0;
-            --text-muted: #aaa;
-            --warn: #FBBF24;
-            --warn-bg: #5A3D2D;
+            --accent: #b24ac7;
+            --accent-700: #8f2ca8;
+            --accent-700-hover: #7a248f;
+            --bg-0: #05070d;
+            --bg-1: #0b1324;
+            --bg-2: #111a30;
+            --bg-3: #1a2540;
+            --blue: #4f7dcf;
+            --green: #49c38f;
+            --green-bg: #1a3a33;
+            --orange: #d38b3f;
+            --panel: #101a2d;
+            --popup-bg: #0d1424;
+            --red: #d45c74;
+            --success-green: #3ea56f;
+            --surface: #1b2740;
+            --teal: #3aa3a0;
+            --text: #f5f7ff;
+            --text-muted: #a9b1c9;
+            --warn: #e1b25f;
+            --warn-bg: #4a3620;
         }
 
         * {
