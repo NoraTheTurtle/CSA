@@ -7,9 +7,15 @@ permalink: /
 
 # Nora's Blog
 
-This site is focused on AP Computer Science A.
-
-- [FRQ Lessons](/frq/)
+| Date | Frq Lesson homework!| 
+|:-----|:---------|
+| 2/7 | [2016 #3](https://github.com/Frogpants/gamers/issues/40) | 
+| 2/7 | [2024 #1](https://github.com/Frogpants/gamers/issues/41) | 
+| 2/14 | [2019 #4](https://github.com/Frogpants/gamers/issues/45) | 
+| 3/7 | [2022 #3](https://github.com/NoraTheTurtle/NoraCSA/issues/13) | 
+| 3/14 | 2017 #1 (My lesson!)| 
+| 3/21 | [2024 #3](https://github.com/NoraTheTurtle/NoraCSA/issues/11)| 
+| 3/30 | [2017 #4](https://github.com/NoraTheTurtle/NoraCSA/issues/12)| 
 
 {% comment %}
 
