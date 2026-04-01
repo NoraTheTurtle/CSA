@@ -210,6 +210,8 @@ permalink: /
 
 # Nora's Blog :]
 
+<a href="{{ '/capstone-checkpoint' | relative_url }}" style="display:inline-block;margin-top:12px;margin-bottom:10px;padding:10px 14px;border-radius:999px;background:rgba(17,24,39,0.8);color:#fff;text-decoration:none;font-weight:600;">4/1 capstone review</a>
+
 | Date | Frq Lesson homework!| topic |☆difficulty☆| reflection |
 |:-----|:---------|:------------|:---------|:--------|
 | 2/7 | [2016 #3](https://github.com/Frogpants/gamers/issues/40) | topic | 3/5 ☆ | I struggled a bit with visualizing the 2D array and making sure I wasn’t going out of bounds, especially on the edges. Writing the boolean logic for checking neighbors took some trial and error. In Part B, switching to OOP was confusing at first, especially understanding how the class and toString() worked together. |
@@ -220,7 +222,12 @@ permalink: /
 | 3/21 | [2024 #3](https://github.com/NoraTheTurtle/NoraCSA/issues/11) | topic | 4/5 ☆ | The string methods like contains, startsWith, and substring were a bit tricky to apply correctly at first. I also had to think carefully about how to build new lists without modifying the original data, so to study for the AP test im going to review this FRQ as practice on these topics im weaker in |
 | 3/30 | [2017 #4](https://github.com/NoraTheTurtle/NoraCSA/issues/12) | topic | 3/5 ☆ | Combining nested loops and method calls to build the new 2D array correctly was the hardest part for me. Keeping track of what each index represented and making sure I passed the right values into findPosition was a bit confusing. Handling cases where the value didn’t exist and returning null also took some careful thinking, and a lot of focus.|
 
-<a href="{{ '/capstone-checkpoint' | relative_url }}" style="display:inline-block;margin-top:12px;padding:10px 14px;border-radius:999px;background:rgba(17,24,39,0.8);color:#fff;text-decoration:none;font-weight:600;">4/1 capstone review</a>
+| Topic | Lesson that relates |
+| --- | --- |
+| Using Objects and Methods |  |
+| Selection and Iteration |  |
+| Class Creation |  |
+| Data Collections |  |
 
 {% comment %}
 
