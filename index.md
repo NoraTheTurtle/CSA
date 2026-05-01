@@ -210,6 +210,8 @@ permalink: /
 
 # Nora's Blog :]
 
+<a href="{{ '/ApStudy' | relative_url }}" style="display:block;width:fit-content;margin:16px auto 18px;padding:12px 30px;border-radius:999px;background:rgba(17,24,39,0.85);color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;letter-spacing:0.2px;box-shadow:0 6px 14px rgba(15,23,42,0.2);border:1px solid rgba(255,255,255,0.2);">AP study proof</a>
+
 <a href="{{ '/capstone-checkpoint' | relative_url }}" style="display:block;width:fit-content;margin:16px auto 18px;padding:12px 30px;border-radius:999px;background:rgba(17,24,39,0.85);color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;letter-spacing:0.2px;box-shadow:0 6px 14px rgba(15,23,42,0.2);border:1px solid rgba(255,255,255,0.2);">4/1 capstone review</a>
 
 | Date | Frq Lesson homework!| AP CSA unit|☆difficulty☆| reflection |
