@@ -11,47 +11,47 @@ This page connects the rubric to real code in the C++ client repo `community` an
 
 ## Combined Requirements Table
 
-| Learning Objective | Project Evidence Required | Assessment Method |
-|---------------------------|--------------------------|-------------------|
-| **Data Structures** | | |
-| Collections | `community/dist_web/index.js` uses helpers like `MapTreeLib`, `TexEnvJIT`, and `CTexEnv`; `community-backend` uses `ArrayList`, `List`, `Set`, and `Collectors` in `GameController` and `GameService` | Code review: Collection use in client and backend code |
-| Lists | <a id="row-list-java"></a>`Lists`<br><a href="#runner-requirements-list-java">Jump to code runner</a> | `GameService.getTopScores()`, `listRooms()`, `getRoomByCode()`, and `getRoomPresenceByCode()` return ordered `List` results; the client also walks ordered state in `traverseState()` and `genPassLines()` | Code review: List building and ordered traversal |
-| Stacks/Queues | <a id="row-stackqueue-java"></a>`Stacks/Queues`<br><a href="#runner-requirements-stackqueue-java">Jump to code runner</a> | The client render loop uses helpers like `traverseState()`, `genPassLines()`, and `genCombinerLines()`; the backend uses request/response flow plus queued persistence updates in `joinRoomByCode()` and `upsertPresenceByRoomCode()` | Code review: Stack/queue-style flow in app logic |
-| Trees | <a id="row-tree-java"></a>`Trees`<br><a href="#runner-requirements-tree-java">Jump to code runner</a> | The client uses tree-like traversal in `traverseState()` and setup helpers in `MapTreeLib`; the backend uses room/member/player relationships in `GameService` | Code review: Tree-like traversal or hierarchy |
-| Sets | <a id="row-set-java"></a>`Sets`<br><a href="#runner-requirements-set-java">Jump to code runner</a> | `GameController.validateRequest()` puts `ConstraintViolation` results into a `Set`, and the backend imports `Set` directly for validation | Code review: Set use in validation and membership checks |
-| Dictionaries/Maps | `community/dist_web/index.js` uses key helpers (`computeKey0`, `computeKey1`, `recomputeKey`, `invalidateKey`) for cached lookups; the backend does keyed SQL lookups by room code, player ID, and task name | Code review: Map/cache-style lookup |
-| Graphs | The client shows relationship traversal with `traverseState`, `genPassLines`, and `genCombinerLines`; the backend links room/member/player records with SQL joins [jump to example](#runner-requirements-graph-java) | Code review: Relationship traversal and linked data |
-| **Algorithms** | | |
-| Searching | <a id="row-search-java"></a>`Searching`<br><a href="#runner-requirements-search-java">Jump to code runner</a> | `findPlayerByName()` does a case-insensitive lookup in `GameService`, and the client uses cache-key search helpers like `computeKey0()` and `computeKey1()` | Code review: Search behavior in API and client code |
-| Sorting | <a id="row-sort-java"></a>`Sorting`<br><a href="#runner-requirements-sort-java">Jump to code runner</a> | `getTopScores()` sorts by `ORDER BY score DESC, submitted_at ASC`; `listRooms()` sorts rooms by `ORDER BY r.created_at DESC`; `getRoomByCode()` sorts members by `ORDER BY m.joined_at ASC` | Code review: Sorting in SQL and service code |
-| Hashing | <a id="row-hash-java"></a>`Hashing`<br><a href="#runner-requirements-hash-java">Jump to code runner</a> | The client uses cache-key helpers (`computeKey0`, `computeKey1`, `recomputeKey`, `invalidateKey`) instead of crypto hashes; the backend uses keyed upserts and unique constraints for stable identity | Code review: Key generation and lookup paths |
-| Algorithm Analysis | <a id="row-algo-java"></a>`Algorithm Analysis`<br><a href="#runner-requirements-algo-java">Jump to code runner</a> | `generateUniqueRoomCode()` retries up to 50 times, `listMultiplayerRooms()` and `leaderboard()` clamp limits with `Math.max`/`Math.min`, and `initializeDatabase()` walks through schema statements in a loop | Documentation: Bounded loops and simple complexity notes |
-| **Object-Oriented Design** | | |
-| Abstraction | Community repo uses modules and contracts to hide the messy parts; backend uses interfaces and abstract types to define behavior | Code review: Abstract classes and interface definitions |
-| Encapsulation | Community repo keeps state inside modules/structs and backend uses private fields with accessors | Code review: Private fields and getters/setters |
-| Inheritance | Community repo and backend use inheritance to extend base behavior where it makes sense (like `Entity` → `Player`/`NPC`) | Code review: Class hierarchies |
-| Polymorphism | Community repo and backend use polymorphic dispatch through interfaces and method overrides | Code review: Method overriding and interface use |
-| Design Patterns | Community repo uses modular separation and backend leans on MVC/Repository-style structure | Code review: Architecture patterns |
-| **Software Development** | | |
-| Version Control | Both repos use Git with regular commits and branch history | GitHub: Commit history, PRs, branch setup |
-| Testing | Backend has JUnit-style tests and the client uses test harnesses or scripted checks where available | Code review: Test files and coverage |
-| Build Tools | Community repo uses `Makefile`/build scripts and backend uses Maven for dependency-managed builds | Code review: pom.xml/build.gradle, Makefile use |
-| Debugging | Community repo uses logging/debug notes and backend uses logging/config settings for troubleshooting | Documentation: Debug notes and logging configs |
-| API Development | `GameController` exposes REST endpoints for players, scores, rooms, presence, and leaderboard data, with `validateRequest()` and `readJsonRequest()` handling input checks | Code review: Controller endpoints and validation |
-| Database Integration | `GameService` saves SQLite-backed players, scores, multiplayer rooms, presence, and task data using `INSERT OR IGNORE`, `ON CONFLICT ... DO UPDATE`, and SQL joins | Code review: SQLite tables and query logic |
-| **Deployment** | | |
-| Docker | Community repo and backend repo provide Dockerfile and `docker-compose.yml` support for local testing and deployment | Code review: Dockerfile and compose setup |
-| DNS Configuration | DNS and custom domain setup are documented for deployment targets | Deployment review: Live site on custom domain |
-| nginx | Sample `nginx.conf` snippets show reverse proxy and TLS setup | Code review: nginx.conf configuration |
-| CI/CD | Automated build/deploy workflows (GitHub Actions) are included where needed | GitHub Actions: Workflow files and runs |
-| **Documentation** | | |
-| Code Comments | Community repo and backend repo include JavaDoc and inline comments for public APIs and tricky logic | Code review: JavaDoc and inline comments |
-| API Documentation | API docs and Postman/Swagger/OpenAPI references are published for backend endpoints and usage | Documentation: API reference, swagger/OpenAPI, or Postman collection |
-| Help System | User guides and in-app help pages are available with examples | Documentation: Help pages and guides |
-| Blog Portfolio | Blog and portfolio pages talk through the design, code, and contributions | Documentation: `_posts/` entries and writeups |
-| **Personal/Social Relevance** | | |
-| Project Impact | The project explains the real-world problem it solves and shows it with demos and repo evidence | Blog/Demo: Project description and demo |
-| Ethical Considerations | Privacy, accessibility, and security stuff is documented in both repos | Documentation: Security and ethical design notes |
+| Learning Objective | Project Evidence Required |
+|---------------------------|--------------------------|
+| **Data Structures** | |
+| Collections | `community/dist_web/index.js` uses helpers like `MapTreeLib`, `TexEnvJIT`, and `CTexEnv`; `community-backend` uses `ArrayList`, `List`, `Set`, and `Collectors` in `GameController` and `GameService` |
+| Lists | <a id="row-list-java"></a>`Lists`<br><a href="#runner-requirements-list-java">Jump to code runner</a> |
+| Stacks/Queues | <a id="row-stackqueue-java"></a>`Stacks/Queues`<br><a href="#runner-requirements-stackqueue-java">Jump to code runner</a> |
+| Trees | <a id="row-tree-java"></a>`Trees`<br><a href="#runner-requirements-tree-java">Jump to code runner</a> |
+| Sets | <a id="row-set-java"></a>`Sets`<br><a href="#runner-requirements-set-java">Jump to code runner</a> |
+| Dictionaries/Maps | `community/dist_web/index.js` uses key helpers (`computeKey0`, `computeKey1`, `recomputeKey`, `invalidateKey`) for cached lookups; the backend does keyed SQL lookups by room code, player ID, and task name |
+| Graphs | The client shows relationship traversal with `traverseState`, `genPassLines`, and `genCombinerLines`; the backend links room/member/player records with SQL joins [jump to example](#runner-requirements-graph-java) |
+| **Algorithms** | |
+| Searching | <a id="row-search-java"></a>`Searching`<br><a href="#runner-requirements-search-java">Jump to code runner</a> |
+| Sorting | <a id="row-sort-java"></a>`Sorting`<br><a href="#runner-requirements-sort-java">Jump to code runner</a> |
+| Hashing | <a id="row-hash-java"></a>`Hashing`<br><a href="#runner-requirements-hash-java">Jump to code runner</a> |
+| Algorithm Analysis | <a id="row-algo-java"></a>`Algorithm Analysis`<br><a href="#runner-requirements-algo-java">Jump to code runner</a> |
+| **Object-Oriented Design** | |
+| Abstraction | Community repo uses modules and contracts to hide the messy parts; backend uses interfaces and abstract types to define behavior |
+| Encapsulation | Community repo keeps state inside modules/structs and backend uses private fields with accessors |
+| Inheritance | Community repo and backend use inheritance to extend base behavior where it makes sense (like `Entity` → `Player`/`NPC`) |
+| Polymorphism | Community repo and backend use polymorphic dispatch through interfaces and method overrides |
+| Design Patterns | Community repo uses modular separation and backend leans on MVC/Repository-style structure |
+| **Software Development** | |
+| Version Control | Both repos use Git with regular commits and branch history |
+| Testing | Backend has JUnit-style tests and the client uses test harnesses or scripted checks where available |
+| Build Tools | Community repo uses `Makefile`/build scripts and backend uses Maven for dependency-managed builds |
+| Debugging | Community repo uses logging/debug notes and backend uses logging/config settings for troubleshooting |
+| API Development | `GameController` exposes REST endpoints for players, scores, rooms, presence, and leaderboard data, with `validateRequest()` and `readJsonRequest()` handling input checks |
+| Database Integration | `GameService` saves SQLite-backed players, scores, multiplayer rooms, presence, and task data using `INSERT OR IGNORE`, `ON CONFLICT ... DO UPDATE`, and SQL joins |
+| **Deployment** | |
+| Docker | Community repo and backend repo provide Dockerfile and `docker-compose.yml` support for local testing and deployment |
+| DNS Configuration | DNS and custom domain setup are documented for deployment targets |
+| nginx | Sample `nginx.conf` snippets show reverse proxy and TLS setup |
+| CI/CD | Automated build/deploy workflows (GitHub Actions) are included where needed |
+| **Documentation** | |
+| Code Comments | Community repo and backend repo include JavaDoc and inline comments for public APIs and tricky logic |
+| API Documentation | API docs and Postman/Swagger/OpenAPI references are published for backend endpoints and usage |
+| Help System | User guides and in-app help pages are available with examples |
+| Blog Portfolio | Blog and portfolio pages talk through the design, code, and contributions |
+| **Personal/Social Relevance** | |
+| Project Impact | The project explains the real-world problem it solves and shows it with demos and repo evidence |
+| Ethical Considerations | Privacy, accessibility, and security stuff is documented in both repos |
 
 ## Interactive Java Examples
 
@@ -334,10 +334,12 @@ AlgoAnalysisDemo.main(null);
 })();
 </script>
 
-## Summary
+## Customer Interactions summary
+**age 40-50+** (our parents/mort): People were confused at the begining of what to do/buttons to press, so we added the notification system with arrows/instructions
 
-- The strongest parts right now are API development, database integration, build tooling, sorting/searching, and modular design.
-- The weaker spots are still stacks/queues, trees, hashing, inheritance, and the formal algorithm analysis row.
+**age 20-30 (our main demographic)** (nora siblings/friends): They understood how to play but didn't know to click the npc multiple times for tasks, so we added more detailed instructions to make it clearer
+
+**age <20** (people from CSA/friends who don't play games): People from CSA were quick to get the game, those who weren't as into video games struggled but understood the games through the notification system!
 
 <!-- Page-local runner override: call local runner endpoints to avoid CORS/host detection issues. -->
 <script>
@@ -389,7 +391,7 @@ AlgoAnalysisDemo.main(null);
 					// eslint-disable-next-line no-eval
 					eval(code);
 					console.log = origLog;
-					outDiv.textContent = logs.join('\n') || '[no output]';
+					outDiv.textContent = logs.join('\n')_ || '[no output]';
 					execSpan.textContent = `⏱Execution time: ${Date.now()-start}ms (local)`;
 				}catch(err){ outDiv.textContent = 'Error: '+err.message; execSpan.textContent=''; }
 				return;
