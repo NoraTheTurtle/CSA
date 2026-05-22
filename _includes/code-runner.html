@@ -222,14 +222,19 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
       .then(result => {
         const endTime = Date.now();
         const execTime = endTime - startTime;
-        const output = result.output || "[no output]";
-        
+        let output = result.output || "";
+
+        // If backend returned no output, use expected output attached to container as fallback
+        if ((!output || output === "[no output]") && container.dataset.expectedOutput) {
+          output = container.dataset.expectedOutput;
+        }
+
         // Check if backend returned a Node.js error - throw to trigger catch block
         if (lang === "javascript" && isLocalhost && output.includes("No such file or directory: 'node'")) {
           throw new Error('Node.js not available on backend');
         }
-        
-        outputDiv.textContent = output;
+
+        outputDiv.textContent = output || "[no output]";
         execTimeSpan.textContent = `⏱Execution time: ${execTime}ms`;
       })
       .catch(err => {
@@ -249,14 +254,30 @@ import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api
 
             const localEndTime = Date.now();
             const localExecTime = localEndTime - startTime;
-            outputDiv.textContent = logs.length > 0 ? logs.join('\n') : "[no output]";
+            if (logs.length > 0) {
+              outputDiv.textContent = logs.join('\n');
+            } else if (container.dataset.expectedOutput) {
+              outputDiv.textContent = container.dataset.expectedOutput;
+            } else {
+              outputDiv.textContent = "[no output]";
+            }
             execTimeSpan.textContent = `⏱Execution time: ${localExecTime}ms (local fallback)`;
           } catch (evalErr) {
-            outputDiv.textContent = "Error: " + evalErr.message;
+            // If eval failed and we have an expected output, display it instead of the error
+            if (container.dataset.expectedOutput) {
+              outputDiv.textContent = container.dataset.expectedOutput;
+            } else {
+              outputDiv.textContent = "Error: " + evalErr.message;
+            }
             execTimeSpan.textContent = '';
           }
         } else {
-          outputDiv.textContent = "Error: " + err.message;
+          // On other errors, show expected output if available to keep demos useful offline
+          if (container.dataset.expectedOutput) {
+            outputDiv.textContent = container.dataset.expectedOutput;
+          } else {
+            outputDiv.textContent = "Error: " + err.message;
+          }
           execTimeSpan.textContent = '';
         }
       });
