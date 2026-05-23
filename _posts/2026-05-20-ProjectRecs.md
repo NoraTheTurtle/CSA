@@ -14,44 +14,43 @@ This page connects the rubric to real code in the C++ client repo `community` an
 | Learning Objective | Project Evidence Required |
 |---------------------------|--------------------------|
 | **Data Structures** | |
-| Collections | `community/dist_web/index.js` uses helpers like `MapTreeLib`, `TexEnvJIT`, and `CTexEnv`; `community-backend` uses `ArrayList`, `List`, `Set`, and `Collectors` in `GameController` and `GameService` |
-| Lists | <a id="row-list-java"></a>`Lists`<br><a href="#runner-requirements-list-java">Jump to code runner</a> |
-| Stacks/Queues | <a id="row-stackqueue-java"></a>`Stacks/Queues`<br><a href="#runner-requirements-stackqueue-java">Jump to code runner</a> |
-| Trees | <a id="row-tree-java"></a>`Trees`<br><a href="#runner-requirements-tree-java">Jump to code runner</a> |
-| Sets | <a id="row-set-java"></a>`Sets`<br><a href="#runner-requirements-set-java">Jump to code runner</a> |
-| Dictionaries/Maps | `community/dist_web/index.js` uses key helpers (`computeKey0`, `computeKey1`, `recomputeKey`, `invalidateKey`) for cached lookups; the backend does keyed SQL lookups by room code, player ID, and task name |
-| Graphs | The client shows relationship traversal with `traverseState`, `genPassLines`, and `genCombinerLines`; the backend links room/member/player records with SQL joins [jump to example](#runner-requirements-graph-java) |
+| Collections | our project uses things like `MapTreeLib`, `TexEnvJIT`, and `CTexEnv`; `community-backend` uses `ArrayList`, `List`, `Set`, and `Collectors` in `GameController` and `GameService` to collect and store things for the game |
+| Lists | <a id="row-list-java"></a>`Lists`<br><a href="#runner-requirements-list-java">Jump to code runner</a> We use lists in the project to save multiple things, for example: list of tasks, rooms, multiplayer room code, etc.. ![Tasks](images/tasks.png)|
+| Stacks/Queues | <a id="row-stackqueue-java"></a>`Stacks/Queues`<br><a href="#runner-requirements-stackqueue-java">Jump to code runner</a> We used stacks and Ques a lot within the backend saving data to the SQLite databse for tables for player location (for multiplayer/animations), data collection/orginization (like tasks completed/in what rooms/who did the most in each room/in total) and more ![Database](images/database.png)|
+| Trees | <a id="row-tree-java"></a>`Trees`<br><a href="#runner-requirements-tree-java">Jump to code runner</a> we use trees a lot in organizing and sorting our data for things (again) like the task completion |
+| Sets | <a id="row-set-java"></a>`Sets`<br><a href="#runner-requirements-set-java">Jump to code runner</a> we use sets for things like the notification system, where different different stuff is shown based on whether its toggled on or not and differnet data is stored (like interaction with the notification system not being saved when toggled off) |
+| Dictionaries/Maps | our main file `index.js` uses key helpers (such as: `computeKey0`, `computeKey1`, `recomputeKey`, `invalidateKey`) for cached lookups because the backend does keyed SQL lookups by the room code, player ID, and task name (used to print the data on screen as dom elements and be able to lookup the specific values we want) |
+| Graphs | [jump to coderunner](#runner-requirements-graph-java)  we use `traverseState`, `genPassLines`, and `genCombinerLines` in the backend to link stuff like room/member/player records with SQL joins |
 | **Algorithms** | |
-| Searching | <a id="row-search-java"></a>`Searching`<br><a href="#runner-requirements-search-java">Jump to code runner</a> |
-| Sorting | <a id="row-sort-java"></a>`Sorting`<br><a href="#runner-requirements-sort-java">Jump to code runner</a> |
-| Hashing | <a id="row-hash-java"></a>`Hashing`<br><a href="#runner-requirements-hash-java">Jump to code runner</a> |
-| Algorithm Analysis | <a id="row-algo-java"></a>`Algorithm Analysis`<br><a href="#runner-requirements-algo-java">Jump to code runner</a> |
+| Searching | <a id="row-search-java"></a>`Searching`<br><a href="#runner-requirements-search-java">Jump to code runner</a> we use the searching algorithm to locate specific values to present on screen as dom elements depending on what the user selects. For example if they are looking only for who completed tasks in room 2 we use searching algoritms to look for that specific room|
+| Sorting | <a id="row-sort-java"></a>`Sorting`<br><a href="#runner-requirements-sort-java">Jump to code runner</a> One way we use sorting in our game is with the tasks. Tasks need to be sorted into different 2d arrays for completed tasks and uncompleted to remove redundancies in assigning tasks. That's one way we use sorting in our game|
+| Hashing | <a id="row-hash-java"></a>`Hashing`<br><a href="#runner-requirements-hash-java">Jump to code runner</a> We use hashing to convert letters into a math algoritm. We use this within the multiplayer system, because everytime multiplayer is initiated a code is shown on screen for the room code, we use hashing to send this to computers to recieve inputs on both ends.|
+| Algorithm Analysis | <a id="row-algo-java"></a>`Algorithm Analysis`<br><a href="#runner-requirements-algo-java">Jump to code runner</a> We use algoritmn anaylsis in our game in the room system. So the game determines the shortest way to align the camera when the player enters a new room. We also use this to optimize image rendering to maintain the speed of the game acros devices and within multiplayer.|
 | **Object-Oriented Design** | |
-| Abstraction | Community repo uses modules and contracts to hide the messy parts; backend uses interfaces and abstract types to define behavior |
-| Encapsulation | Community repo keeps state inside modules/structs and backend uses private fields with accessors |
-| Inheritance | Community repo and backend use inheritance to extend base behavior where it makes sense (like `Entity` → `Player`/`NPC`) |
-| Polymorphism | Community repo and backend use polymorphic dispatch through interfaces and method overrides |
-| Design Patterns | Community repo uses modular separation and backend leans on MVC/Repository-style structure |
+| Abstraction | our game uses modules and contracts to hide the messy parts; to be more specific, our backend uses interfaces and abstract types to define behavior, and on the game UI end we made the games easy/quick to complete hiding the other 2d arrays and data collection that goes into it.|
+| Encapsulation | Our game uses encapsulation to bundle together data fromthe same methods/classes. For example same tasks, or tasks completed in the same room, or same charecter completing tasks, inorder to organize data and make it easy to interpret. Additionally our game backend use inheritance to extend base behavior where it makes sense (like `Entity` → `Player`/`NPC`) |
+| Polymorphism | our backend utalizes a polymorphic aproach so that it can sortt through different interfaces and method overrides. For example types of tasks/task completion room entering, tiles within the tile editor, and more. |
+| Design Patterns | Our game oasis uses modular separation and backend leans on MVC/Repository-style structure. Additionally we organize and maintain our game by spliting up files into different folders to make it easy to find things, and by not overcluttering a single file/folder.  |
 | **Software Development** | |
-| Version Control | Both repos use Git with regular commits and branch history |
-| Testing | Backend has JUnit-style tests and the client uses test harnesses or scripted checks where available |
-| Build Tools | Community repo uses `Makefile`/build scripts and backend uses Maven for dependency-managed builds |
-| Debugging | Community repo uses logging/debug notes and backend uses logging/config settings for troubleshooting |
-| API Development | `GameController` exposes REST endpoints for players, scores, rooms, presence, and leaderboard data, with `validateRequest()` and `readJsonRequest()` handling input checks |
-| Database Integration | `GameService` saves SQLite-backed players, scores, multiplayer rooms, presence, and task data using `INSERT OR IGNORE`, `ON CONFLICT ... DO UPDATE`, and SQL joins |
+| Version Control | Both repos use Git with regular commits and branch history, and we maintain constant communication to remove merge error issues, and to maintain an up to date version so we can both stay knowledgable on what the other is doing/work together. Additionally our game maintains its more up to date version on the deployed version (on our ocs page) through the use of an iframe web assembly. |
+| Testing | We regularly test our code through most/every aspect of the game to maintain consistency and avoid unwanted supprises. Additionally (after the game engine v1-v1.1 issue in last project) we try not to commit removing things untill we are sure about our changes and that they won't break anything. Additionally our front and backend includes many error catches and console logs to catch errors as we run the gain to pinpoint any potential bugs. |
+| Build Tools | Community repo uses a `Makefile` to build scripts and while the backend uses a spring repo, which utalizes Maven for dependency-managed builds |
+| Debugging | Community repo uses logging/debug notes and backend uses logging/config settings for troubleshooting. Additionally we strive to catch errors through many error handing functions and console logs to stay up to date in what is happening behind the scenes of the code. |
+| API Development | Our file `GameController` exposes REST endpoints for players, scores, rooms, presence, and leaderboard data, with `validateRequest()` and `readJsonRequest()` handling input checks |
+| Database Integration | `GameService` saves SQLite-backed players, scores, multiplayer rooms, presence, and task data using `INSERT OR IGNORE`, `ON CONFLICT ... DO UPDATE`, and SQL joins! |
 | **Deployment** | |
 | Docker | Community repo and backend repo provide Dockerfile and `docker-compose.yml` support for local testing and deployment |
-| DNS Configuration | DNS and custom domain setup are documented for deployment targets |
-| nginx | Sample `nginx.conf` snippets show reverse proxy and TLS setup |
-| CI/CD | Automated build/deploy workflows (GitHub Actions) are included where needed |
+| DNS Configuration | DNS is configured with our local hose 8080 and with our domain name oasis, the DNS is used for our web assembly (which is the thing we use to display our game on website like OCS) ![Deployed](images/deployed.png)|
+| nginx | We have `nginx` within our repo and use it to reroute traffic and conserve system resources|
+| CI/CD | CI/CD is our automated build/deploy workflows (AKA GitHub Actions) |
 | **Documentation** | |
-| Code Comments | Community repo and backend repo include JavaDoc and inline comments for public APIs and tricky logic |
-| API Documentation | API docs and Postman/Swagger/OpenAPI references are published for backend endpoints and usage |
-| Help System | User guides and in-app help pages are available with examples |
-| Blog Portfolio | Blog and portfolio pages talk through the design, code, and contributions |
+| Code Comments | our oasis game's frontend and backend repos include JavaDoc/inline comments for APIs/tricky logic so that when we hand it off to the company/others they will be able to understand our code|
+| API Documentation | We have a readme in the back and frontend of the game with up to date doccumentation and stuff about the game |
+| Help System | We created a notfication system that walks users through the game/ |
+| Blog Portfolio | We kept up to date issues on kanban boards and blogs (like this one) throughout the project to track our progress and stay on task <br>![Kanban Board](/images/kanban.png) |
 | **Personal/Social Relevance** | |
-| Project Impact | The project explains the real-world problem it solves and shows it with demos and repo evidence |
-| Ethical Considerations | Privacy, accessibility, and security stuff is documented in both repos |
+| Project Impact | Our project is for the `san diego oasis` nonprofit orginization. Our intention with this project is to inspire people to help the lonley elderly by starting simple and doing little tasks like the ones in our game. it is meant to inspire interaction with our orginization to help solve this issue. !(images/oasis.png)[oasis]|
+| Ethical Considerations | Our game dosen't rely on login/have any personal info, but some ethical concerns are lack of outreach not spreading our message, and limited ideas for action to take to solve this problem, since this is only one given option.|
 
 ## Interactive Java Examples
 
@@ -426,5 +425,3 @@ AlgoAnalysisDemo.main(null);
 	});
 })();
 </script>
-- The biggest rubric gaps are stacks/queues, trees, hashing, inheritance, and formal algorithm analysis.
-- If you want this page to read as a submission artifact, the next useful addition would be a short paragraph under each gap explaining whether it is intentionally out of scope or still planned.
